@@ -2,9 +2,16 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image';
+import NavBar from '@/app/components/navbar/page';
+import Menubar from '@/app/components/menubar/page';
+import Banner from '@/app/components/banner/page';
 function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div>
+        <NavBar/>
+        <Menubar/>
+        <Banner/>
+        {/* <div className="min-h-screen bg-gray-100">
       <Head>
         <title>Charcoal E-commerce | Home</title>
         <meta name="description" content="Premium charcoal products for your grilling needs" />
@@ -64,7 +71,10 @@ function HomePage() {
           <p>&copy; 2024 Charcoal E-commerce. All rights reserved.</p>
         </div>
       </footer>
+    </div> */}
     </div>
+
+   
   )
 }
 

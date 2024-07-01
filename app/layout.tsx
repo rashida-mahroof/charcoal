@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Quicksand,Maven_Pro, } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const quicksand = Quicksand({ subsets: ["latin"], weight:['700','600'],variable:'--font-quicksand' });
+const mavenpro  = Maven_Pro({ subsets: ["latin"],
+  weight:['400','500'],
+  variable:'--font-maven-pro'
+
+ });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${quicksand.variable} ${mavenpro.variable}`}>{children}</body>
     </html>
   );
 }
