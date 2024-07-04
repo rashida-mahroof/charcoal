@@ -1,3 +1,5 @@
+
+"use client"
 import React, { useState } from 'react';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
