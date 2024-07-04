@@ -1,20 +1,21 @@
-"use client";
 import React from 'react';
 import Link from 'next/link';
 
-interface Category {
+type Category = {
   name: string;
   items: string[];
-}
+};
 
-interface CatFilterProps {
+type CatFilterProps = {
   category: Category;
-}
+};
 
 const CatFilter: React.FC<CatFilterProps> = ({ category }) => {
   return (
-    <div className="mb-8 bg-white ">
-      <h2 className="font-semibold mb-4 text-lg bg-[var(--color-ember)] text-[var(--on-primary)] px-1">{category.name}</h2>
+    <div className="mb-8 bg-white">
+      <h2 className="font-semibold mb-4 text-lg bg-[var(--color-ember)] text-[var(--on-primary)] px-1">
+        {category.name}
+      </h2>
       <ul className="space-y-2">
         {category.items.map((item, index) => (
           <li key={index}>
