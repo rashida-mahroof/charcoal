@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${quicksand.variable} ${mavenpro.variable}`}>{children}
 
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      {/* <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> */}
       </body>
      
     </html>
