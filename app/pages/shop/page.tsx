@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTh, faThList } from '@fortawesome/free-solid-svg-icons';
@@ -23,9 +23,9 @@ const Shop = () => {
 
   return (
     <MainLayout>
-      <div className="container mx-auto py-6">
-        <div className="flex justify-between items-center mb-4">
-          <div className="w-1/4">
+      <div className="container mx-auto py-6 px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+          <div className="w-full md:w-1/4 mb-4 md:mb-0">
             <input
               type="text"
               placeholder="Search here..."
@@ -33,29 +33,28 @@ const Shop = () => {
             />
           </div>
           <div className="flex space-x-2">
-            <button onClick={() => gridView(true)}>
+            <button onClick={() => gridView(true)} className="p-2 border rounded-md">
               <FontAwesomeIcon icon={faTh} />
             </button>
-            <button onClick={() => gridView(false)}>
+            <button onClick={() => gridView(false)} className="p-2 border rounded-md">
               <FontAwesomeIcon icon={faThList} />
             </button>
           </div>
         </div>
-        <div className="flex">
-          <aside className="w-1/4 pr-4">
+        <div className="flex flex-col md:flex-row">
+          <aside className="w-full md:w-1/4 pr-4 mb-4 md:mb-0">
             <CatFilter category={categories} />
             <CatFilter category={brands} />
           </aside>
-          <main className="w-3/4">
-            <div className={`grid gap-4 grid-cols-3`}>
+          <main className="w-full md:w-3/4">
+            <div className={`grid gap-4 ${view ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
               {products.map(product => (
-                view === true ? (
+                view ? (
                   <ProductCard key={product.id} product={product} />
                 ) : (
-                    <div className='bg-white p-2'>
-                        <ItemList key={product.id} product={product} />
-                    </div>
-                  
+                  <div className='bg-white p-2'>
+                    <ItemList key={product.id} product={product} />
+                  </div>
                 )
               ))}
             </div>

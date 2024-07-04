@@ -6,6 +6,7 @@ import { faShoppingCart, faUser, faHeart } from '@fortawesome/free-solid-svg-ico
 import products from '../../constants';
 import ItemList from '../product/itemList/page';
 import Panel from '../common/sidePanel/page';
+import Popup from '../account/login/page';
 
 const menus = [
   { name: "Shop", subMenus: ["Premium Charcoal", "Lumb Charcoal", "Briquettes", "Smoker Pellletes"] },
@@ -20,6 +21,7 @@ const Menubar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +50,9 @@ const Menubar = () => {
 
   const toggleWishlistPanel = () => {
     setIsWishlistOpen(!isWishlistOpen);
+  };
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
   };
 
   return (
@@ -80,9 +85,9 @@ const Menubar = () => {
           </div>
           <div className='flex flex-row items-center'>
             <div className="flex justify-center">
-              <Link className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" href={''}>
+            <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={togglePopup}>
                 <FontAwesomeIcon icon={faUser} />
-              </Link>
+              </button>
               <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={toggleWishlistPanel}>
                 <FontAwesomeIcon icon={faHeart} />
               </button>
@@ -141,6 +146,10 @@ const Menubar = () => {
         togglePanel={toggleWishlistPanel}
         title="Wishlist"
         items={products.map(product => <ItemList key={product.id} product={product} />)}
+      />
+      <Popup
+        isOpen={isPopupOpen}
+        togglePopup={togglePopup}
       />
     </>
   );
