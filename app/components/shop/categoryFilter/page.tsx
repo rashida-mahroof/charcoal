@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-
+"use client"
 interface Category {
   name: string;
   items: string[];
