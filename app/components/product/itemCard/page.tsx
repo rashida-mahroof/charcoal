@@ -5,9 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import CartButton from '../../product/cartButton/page';
 import WishListButton from '../../product/wishlistButton/page';
+import Link from 'next/link';
 
 const ProductCard = ({ product }: any) => (
-    <div className="flex flex-col items-center bg-white px-2">
+    <Link href = '/pages/itemDetails'>
+     <div className="flex flex-col items-center bg-white">
       <div className="relative w-full aspect-square mb-4 group overflow-hidden">
         <Image 
           src={product.image} 
@@ -23,7 +25,7 @@ const ProductCard = ({ product }: any) => (
         )}
       </div>
       <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
-      <p className="text-gray-600 mb-2">{product.price}</p>
+      <p className="text-gray-600 mb-2 font-bold text-base">{product.price}</p>
       <div className="flex">
         {[...Array(product.rating)].map((_, i) => (
           <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-400 w-4 h-4" />
@@ -34,6 +36,8 @@ const ProductCard = ({ product }: any) => (
           <WishListButton>Wish List</WishListButton>
       </div>
     </div>
+    </Link>
+   
   );
 
   export default ProductCard;

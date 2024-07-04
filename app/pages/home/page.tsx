@@ -17,23 +17,24 @@ import WhyChose from '@/app/components/home/whychose/page';
 import Hero from '@/app/components/home/hero/page';
 import FeaturedItems from '@/app/components/home/featured/page';
 import CallToAction from '@/app/components/home/calltoaction/page';
+import About from '@/app/components/home/about/page';
 function HomePage() {
   return (
     <div>
       <MainLayout>
-        
-        <Hero/>
-       <ServiceHighlights/>
-        <ShopByCategories/>
-        {/* <Banner/> */}
-        <OurBestsellers/>
-        <WhyChose/>
-        <CallToAction/>
-        <FeaturedItems/>
-       </MainLayout>
+
+        <Hero />
+        <ServiceHighlights />
+
+        <ShopByCategories />
+        <OurBestsellers />
+        <WhyChose />
+        <CallToAction />
+        <FeaturedItems />
+      </MainLayout>
     </div>
 
-   
+
   )
 }
 

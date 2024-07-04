@@ -1,18 +1,18 @@
 "use client";
 import React from 'react';
-import ProdImage from '../../../assets/Charcoal-2.png';
+import ProdImage from '../../../assets/hardwood-lump-charcoal-jpg.jpg';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ProductCard from '../../product/itemCard/page';
 
 const products = [
-  { id: 1, name: 'Product 1', price: '$9.00 - $60.00', rating: 5, image: ProdImage },
-  { id: 2, name: 'Product 2', price: '$99.00', rating: 4, image: ProdImage },
-  { id: 3, name: 'Product 3', price: '$24.00 - $44.00', rating: 5, image: ProdImage },
-  { id: 4, name: 'Product 4', price: '$44.00', rating: 5, image: ProdImage },
-  { id: 5, name: 'Product 5', price: '$44.00', rating: 5, image: ProdImage },
-  { id: 6, name: 'Product 6', price: '$44.00', rating: 5, image: ProdImage },
+  { id: 1, name: 'Product 1', price: '₹9.00 - $60.00', rating: 5, image: ProdImage },
+  { id: 2, name: 'Product 2', price: '₹99.00', rating: 4, image: ProdImage },
+  { id: 3, name: 'Product 3', price: '₹24.00 - $44.00', rating: 5, image: ProdImage },
+  { id: 4, name: 'Product 4', price: '₹44.00', rating: 5, image: ProdImage },
+  { id: 5, name: 'Product 5', price: '₹44.00', rating: 5, image: ProdImage },
+  { id: 6, name: 'Product 6', price: '₹44.00', rating: 5, image: ProdImage },
 ];
 
 

@@ -36,7 +36,7 @@ const FeaturedItems = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">Our Featured Products</h2>
+        <h2 className="text-3xl font-semibold text-center mb-4">Our Featured Products</h2>
         <Slider {...settings}>
           {products.map((product) => (
             <div key={product} className="bg-white p-6 rounded-lg shadow-md mx-2">

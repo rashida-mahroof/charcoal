@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram, faPinterest } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -24,18 +25,18 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Glowing</h3>
             <p className="text-gray-400 mb-4">Your one-stop shop for grilling.</p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
                 <FontAwesomeIcon icon={faFacebookF} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
                 <FontAwesomeIcon icon={faTwitter} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
                 <FontAwesomeIcon icon={faInstagram} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
                 <FontAwesomeIcon icon={faPinterest} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -43,10 +44,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Shop</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Shop</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -54,10 +55,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Shipping & Returns</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Terms & Conditions</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 

@@ -25,6 +25,7 @@
 
 }
 body {
+  scroll-behavior: smooth;
   font-size: 13px;
   background-color: var(--color-smoke);
   color: var(--color-charcoal);

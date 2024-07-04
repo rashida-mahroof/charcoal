@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import bgImage from '../../../assets/premium.webp';
+import Link from 'next/link';
 export default function Hero() {
   return (
     <div className="relative h-screen w-full">
@@ -18,9 +19,9 @@ export default function Hero() {
         <p className="text-xl mb-8">
           Experience the difference with our high-quality, sustainable charcoal products.
         </p>
-        <button className="bg-white text-black py-2 px-6 rounded-full hover:bg-gray-200 transition-colors">
+        <Link href='/pages/shop' className="bg-white text-black py-2 px-6 rounded-full hover:bg-gray-200 transition-colors">
           Shop Now
-        </button>
+        </Link>
       </div>
     </div>
   );

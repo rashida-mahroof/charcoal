@@ -38,17 +38,20 @@ const ServiceItem = ({ icon, title, description }:any) => (
 );
 
 const ServiceHighlights = () => {
-  return (
-    <section className="bg-[var(--on-primary)] py-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {serviceItems.map((item, index) => (
-            <ServiceItem key={index} {...item} />
-          ))}
+    return (
+      <section className="bg-[var(--on-primary)] py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 flex overflow-x-auto space-x-4 md:space-x-0">
+            {serviceItems.map((item, index) => (
+              <div key={index} className="min-w-[250px] md:min-w-0">
+                <ServiceItem {...item} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  };
+  
 
 export default ServiceHighlights;

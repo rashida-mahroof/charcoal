@@ -4,6 +4,7 @@ import ProdImage from '../../../assets/rockwood-charcoal.webp';
 import Premium from '../../../assets/Charcoal-2.png';
 import Lump from '../../../assets/hardwood-lump-charcoal-jpg.jpg';
 import BBQ from '../../../assets/bbq.jpg';
+import Link from 'next/link';
 const categories = [
   { name: 'Premium', image: Premium },
   { name: 'Lumb', image: Lump },
@@ -17,6 +18,7 @@ const ShopByCategories = () => {
       <h2 className="text-3xl font-semibold text-center mb-8">Shop by Categories</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {categories.map((category, index) => (
+          <Link href='/pages/shop'>
           <div key={index} className="relative aspect-square overflow-hidden rounded-lg group">
             <Image
               src={category.image}
@@ -29,6 +31,8 @@ const ShopByCategories = () => {
               <span className="text-white text-xl font-semibold">{category.name}</span>
             </div>
           </div>
+          </Link>
+          
         ))}
       </div>
     </section>

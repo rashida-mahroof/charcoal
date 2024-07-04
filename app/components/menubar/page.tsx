@@ -7,9 +7,9 @@ import products from '../../constants';
 import Image from 'next/image';
 const menus = [
   { name: "Shop", subMenus: ["Premium Charcoal", "Lumb Charcoal", "Briquettes", "Smoker Pellletes"] },
-  { name: "All", subMenus: [] },
-  { name: "About Us", subMenus: [] },
-  { name: "Contact Us" }
+  { name: "All", subMenus: [] ,link:'/pages/shop' },
+  { name: "About Us", subMenus: [] ,link:'/pages/about'},
+  { name: "Contact Us" ,link:'/pages/contact'}
 ];
 
 const Menubar = () => {
@@ -45,10 +45,10 @@ const Menubar = () => {
 
   return (
     <>
-      <div className={`bg-[var(--color-flame)] text-white transition-all duration-300 ease-in-out ${isSticky ? 'fixed top-0 left-0 right-0 z-50' : ''}`}>
+      <div className={`bg-[var(--color-ember)] text-white transition-all duration-300 ease-in-out ${isSticky ? 'fixed top-0 left-0 right-0 z-50' : ''}`}>
         <div className="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-0">
           <div className='flex flex-row items-center justify-between'>
-            <div className="text-2xl font-bold mr-5">Logo</div>
+            <Link href='/'><div className="text-2xl font-bold mr-5">Logo</div></Link>
             <div className="hidden md:flex justify-center space-x-4">
               {menus.map((menu, index) => (
                 <div
@@ -57,13 +57,13 @@ const Menubar = () => {
                   onMouseEnter={() => handleMouseEnter(menu.name)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button className="hover:text-gray-400">{menu.name}</button>
+                  <Link href={menu.link ?? '/'} className="hover:text-gray-400">{menu.name}</Link>
                   {menu.name !== "Contact Us" && openSubmenu === menu.name && (
                     <div className="absolute left-0 w-48 bg-white text-black shadow-lg z-10 mt-2">
                       {menu.subMenus?.map((subMenu, subIndex) => (
-                        <a href="#" key={subIndex} className="block px-4 py-2 hover:bg-gray-200">
+                        <Link href="#" key={subIndex} className="block px-4 py-2 hover:bg-gray-200">
                           {subMenu}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -110,9 +110,9 @@ const Menubar = () => {
                 {menu.name !== "Contact Us" && (
                   <div className="pl-4">
                     {menu.subMenus?.map((subMenu, subIndex) => (
-                      <a href="#" key={subIndex} className="block px-4 py-2 hover:bg-gray-200">
+                      <Link href="#" key={subIndex} className="block px-4 py-2 hover:bg-gray-200">
                         {subMenu}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -148,7 +148,7 @@ const Menubar = () => {
               </div>
             ))}
           </div>
-            <button className='w-full bg-[var(--color-flame)] text-[var(--on-primary)] p-2'>View All</button>
+            <Link href='/pages/cart' className='w-full bg-[var(--color-flame)] text-[var(--on-primary)] p-2'>View All</Link>
         </div>
       </div>
     </>
