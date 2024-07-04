@@ -4,7 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
 import products from '../../constants';
-import Image from 'next/image';
+import ItemList from '../product/itemList/page';
+import Panel from '../common/sidePanel/page';
+
 const menus = [
   { name: "Shop", subMenus: ["Premium Charcoal", "Lumb Charcoal", "Briquettes", "Smoker Pellletes"] },
   { name: "All", subMenus: [] ,link:'/pages/shop' },
@@ -14,9 +16,10 @@ const menus = [
 
 const Menubar = () => {
   const [isSticky, setIsSticky] = useState(false);
-  const [openSubmenu, setOpenSubmenu] = useState(null);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +30,7 @@ const Menubar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleMouseEnter = (menu: any) => {
+  const handleMouseEnter = (menu: string) => {
     setOpenSubmenu(menu);
   };
 
@@ -41,6 +44,10 @@ const Menubar = () => {
 
   const toggleCartPanel = () => {
     setIsCartOpen(!isCartOpen);
+  };
+
+  const toggleWishlistPanel = () => {
+    setIsWishlistOpen(!isWishlistOpen);
   };
 
   return (
@@ -71,29 +78,31 @@ const Menubar = () => {
               ))}
             </div>
           </div>
-          <div className="flex justify-center">
-            <Link className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" href={''}>
-              <FontAwesomeIcon icon={faUser} />
-            </Link>
-            <Link href={''} className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center">
-              <FontAwesomeIcon icon={faHeart} />
-            </Link>
-            <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={toggleCartPanel}>
-              <FontAwesomeIcon icon={faShoppingCart} />
-            </button>
-          </div>
-          <div className="md:hidden">
-            <button onClick={toggleMobileMenu} className="focus:outline-none">
-              {isMobileMenuOpen ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-              )}
-            </button>
+          <div className='flex flex-row items-center'>
+            <div className="flex justify-center">
+              <Link className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" href={''}>
+                <FontAwesomeIcon icon={faUser} />
+              </Link>
+              <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={toggleWishlistPanel}>
+                <FontAwesomeIcon icon={faHeart} />
+              </button>
+              <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={toggleCartPanel}>
+                <FontAwesomeIcon icon={faShoppingCart} />
+              </button>
+            </div>
+            <div className="md:hidden">
+              <button onClick={toggleMobileMenu} className="focus:outline-none">
+                {isMobileMenuOpen ? (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
         </div>
         {isMobileMenuOpen && (
@@ -121,36 +130,18 @@ const Menubar = () => {
           </div>
         )}
       </div>
-      <div className={`fixed shadow overflow-y-auto top-0 right-0 w-1/4 h-screen z-50  bg-white transition-transform transform ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="p-4">
-          <div className='flex flex-row items-center justify-between'>
-            <h2 className="text-xl font-bold mb-4">Cart</h2>
-            <button className="text-red-500" onClick={toggleCartPanel}>Close</button>
-          </div>
-
-          {/* Cart content goes here */}
-          <div className='flex  flex-col'>
-            {products.map(product => (
-              <div key={product.id} className="flex p-2 bg-[var(--color-smoke)] items-center mb-4">
-                <div className="w-1/3">
-                  <Image src={product.image} alt={product.name} width={100} height={100} className="object-cover " />
-                </div>
-                <div className="w-2/3 pl-4">
-                  <h5 className="font-bold">{product.name}</h5>
-                  <p className="text-gray-700">{product.price}</p>
-                  <p className="text-gray-700">{1}</p>
-                  <div className="flex items-center mt-2">
-                    <span className="text-yellow-500">{"★".repeat(product.rating)}</span>
-                    <span className="text-gray-400">{"★".repeat(5 - product.rating)}</span>
-                    <span className="ml-2 text-sm text-gray-600">({product.rating})</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-            <Link href='/pages/cart' className='w-full bg-[var(--color-flame)] text-[var(--on-primary)] p-2'>View All</Link>
-        </div>
-      </div>
+      <Panel
+        isOpen={isCartOpen}
+        togglePanel={toggleCartPanel}
+        title="Cart"
+        items={products.map(product => <ItemList key={product.id} product={product} />)}
+      />
+      <Panel
+        isOpen={isWishlistOpen}
+        togglePanel={toggleWishlistPanel}
+        title="Wishlist"
+        items={products.map(product => <ItemList key={product.id} product={product} />)}
+      />
     </>
   );
 };

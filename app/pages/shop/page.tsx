@@ -6,6 +6,7 @@ import products from '../../constants';
 import ProductCard from '@/app/components/product/itemCard/page';
 import MainLayout from '@/app/layout/page';
 import CatFilter from '@/app/components/shop/categoryFilter/page';
+import ItemList from '@/app/components/product/itemList/page';
 
 const categories = {
   name: 'Category',
@@ -18,7 +19,7 @@ const brands = {
 };
 
 const Shop = () => {
-  const [view, setView] = useState('grid');
+  const [view, gridView] = useState(true);
 
   return (
     <MainLayout>
@@ -32,10 +33,10 @@ const Shop = () => {
             />
           </div>
           <div className="flex space-x-2">
-            <button onClick={() => setView('grid')}>
+            <button onClick={() => gridView(true)}>
               <FontAwesomeIcon icon={faTh} />
             </button>
-            <button onClick={() => setView('list')}>
+            <button onClick={() => gridView(false)}>
               <FontAwesomeIcon icon={faThList} />
             </button>
           </div>
@@ -46,9 +47,16 @@ const Shop = () => {
             <CatFilter category={brands} />
           </aside>
           <main className="w-3/4">
-            <div className={`grid gap-4 ${view === 'grid' ? 'grid-cols-3' : 'grid-cols-1'}`}>
+            <div className={`grid gap-4 grid-cols-3`}>
               {products.map(product => (
-                <ProductCard key={product.id} product={product} />
+                view === true ? (
+                  <ProductCard key={product.id} product={product} />
+                ) : (
+                    <div className='bg-white p-2'>
+                        <ItemList key={product.id} product={product} />
+                    </div>
+                  
+                )
               ))}
             </div>
           </main>
