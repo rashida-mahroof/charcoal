@@ -21,10 +21,11 @@ function HomePage() {
   return (
     <div>
       <MainLayout>
-        {/* <Banner/> */}
+        
         <Hero/>
        <ServiceHighlights/>
         <ShopByCategories/>
+        {/* <Banner/> */}
         <OurBestsellers/>
         <WhyChose/>
         <CallToAction/>

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import bgImage from '../../../assets/fire1.jpg';
+import bgImage from '../../../assets/premium.webp';
 export default function Hero() {
   return (
     <div className="relative h-screen w-full">

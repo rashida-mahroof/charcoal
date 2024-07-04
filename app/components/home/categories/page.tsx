@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import ProdImage from '../../../assets/rockwood-charcoal.webp';
-import Premium from '../../../assets/coal.webp';
+import Premium from '../../../assets/Charcoal-2.png';
 import Lump from '../../../assets/hardwood-lump-charcoal-jpg.jpg';
 import BBQ from '../../../assets/bbq.jpg';
 const categories = [
@@ -21,8 +21,8 @@ const ShopByCategories = () => {
             <Image
               src={category.image}
               alt={category.name}
-              layout="fill"
-              objectFit="cover"
+              // layout="fill"
+              // objectFit="cover"
               className="transition-transform duration-300 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
