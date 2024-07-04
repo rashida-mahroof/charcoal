@@ -6,7 +6,7 @@ import MainLayout from '@/app/layout/page';
 const ContactPage = () => {
   return (
     <MainLayout>
-        
+
         <div className="container mx-auto p-4 max-w-6xl">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Contact Information */}
@@ -82,21 +82,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-      {/* Google Maps Section */}
-      <div className="mt-12">
-        <h2 className="text-2xl font-bold mb-4">Find Us on Google Maps</h2>
-        <p className="mb-4 text-gray-600">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor nunc nisl, eu bibendum purus eleifend vel.
-        </p>
-        <div className="h-96 bg-gray-200 rounded-lg">
-          {/* Replace this div with an actual Google Maps component */}
-          <img 
-            src="/api/placeholder/800/400" 
-            alt="Google Maps placeholder" 
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-      </div>
+     
     </div>
     </MainLayout>
   );
