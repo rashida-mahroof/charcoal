@@ -50,7 +50,7 @@ const OurBestsellers = () => {
   };
 
   return (
-    <section className="py-10 px-4 max-w-7xl mx-auto">
+    <section className="py-10 px-4 max-w-7xl mx-auto container">
         <TitleMain>Our Bestsellers</TitleMain>
       {/* <p className=" text-gray-600 mb-8">Looking for something specific? Shop by category to find your perfect piece of jewelry.</p> */}
       <Slider {...settings}>

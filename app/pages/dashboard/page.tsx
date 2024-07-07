@@ -145,7 +145,7 @@ const AdminDashboard: React.FC = () => {
                                 <label htmlFor="productDescription" className="block mb-1">Description</label>
                                 <textarea id="productDescription" className="w-full border rounded p-2" rows={4}></textarea>
                             </div>
-                            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            <button type="submit" className="bg-[var(--color-ember)] text-white px-4 py-2 rounded hover:bg-blue-600">
                                 Add Product
                             </button>
                         </form>
@@ -159,22 +159,22 @@ const AdminDashboard: React.FC = () => {
             {/* Sidebar */}
             <div className={ `flex flex-col justify-between bg-gray-800 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
                 <nav>
-                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'products' ? 'bg-blue-500' : 'hover:bg-gray-700'}`} onClick={() => {
+                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'products' ? 'bg-[var(--color-ember)]' : 'hover:bg-gray-700'}`} onClick={() => {
                         setActiveTab('products');
                         setIsSidebarOpen(false);
                     }}>
                         <FontAwesomeIcon icon={faBox} className="mr-2" />Products
                     </a>
-                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'add-product' ? 'bg-blue-500' : 'hover:bg-gray-700'}`} onClick={() => { setActiveTab('add-product'); setIsSidebarOpen(false); }}>
+                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'add-product' ? 'bg-[var(--color-ember)]' : 'hover:bg-gray-700'}`} onClick={() => { setActiveTab('add-product'); setIsSidebarOpen(false); }}>
                         <FontAwesomeIcon icon={faPlus} className="mr-2" />Add Product
                     </a>
-                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'orders' ? 'bg-blue-500' : 'hover:bg-gray-700'}`} onClick={() => { setActiveTab('orders'); setIsSidebarOpen(false); }}>
+                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'orders' ? 'bg-[var(--color-ember)]' : 'hover:bg-gray-700'}`} onClick={() => { setActiveTab('orders'); setIsSidebarOpen(false); }}>
                         <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />Orders
                     </a>
-                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'users' ? 'bg-blue-500' : 'hover:bg-gray-700'}`} onClick={() => { setActiveTab('users'); setIsSidebarOpen(false); }}>
+                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'users' ? 'bg-[var(--color-ember)]' : 'hover:bg-gray-700'}`} onClick={() => { setActiveTab('users'); setIsSidebarOpen(false); }}>
                         <FontAwesomeIcon icon={faUsers} className="mr-2" />Users
                     </a>
-                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'reviews' ? 'bg-blue-500' : 'hover:bg-gray-700'}`} onClick={() => { setActiveTab('reviews'); setIsSidebarOpen(false); }}>
+                    <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'reviews' ? 'bg-[var(--color-ember)]' : 'hover:bg-gray-700'}`} onClick={() => { setActiveTab('reviews'); setIsSidebarOpen(false); }}>
                         <FontAwesomeIcon icon={faStar} className="mr-2" />Reviews
                     </a>
                 </nav>

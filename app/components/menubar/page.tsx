@@ -9,10 +9,10 @@ import Panel from '../common/sidePanel/page';
 import Popup from '../account/login/page';
 
 const menus = [
-  { name: "Shop", subMenus: ["Premium Charcoal", "Lumb Charcoal", "Briquettes", "Smoker Pellletes"] },
-  { name: "All", subMenus: [] ,link:'/pages/shop' },
-  { name: "About Us", subMenus: [] ,link:'/pages/about'},
-  { name: "Contact Us" ,link:'/pages/contact'}
+  { name: "Shop", subMenus: ["Premium Charcoal", "Lump Charcoal", "Briquettes", "Smoker Pellets"] },
+  { name: "All", subMenus: [], link: '/pages/shop' },
+  { name: "About Us", subMenus: [], link: '/pages/about' },
+  { name: "Contact Us", link: '/pages/contact' }
 ];
 
 const Menubar = () => {
@@ -51,6 +51,7 @@ const Menubar = () => {
   const toggleWishlistPanel = () => {
     setIsWishlistOpen(!isWishlistOpen);
   };
+
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
@@ -85,15 +86,16 @@ const Menubar = () => {
           </div>
           <div className='flex flex-row items-center'>
             <div className="flex justify-center">
-            <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={togglePopup}>
+              {/* <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={togglePopup}>
                 <FontAwesomeIcon icon={faUser} />
               </button>
               <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={toggleWishlistPanel}>
                 <FontAwesomeIcon icon={faHeart} />
               </button>
-              <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={toggleCartPanel}>
+              <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" 
+              onClick={toggleCartPanel}>
                 <FontAwesomeIcon icon={faShoppingCart} />
-              </button>
+              </button> */}
             </div>
             <div className="md:hidden">
               <button onClick={toggleMobileMenu} className="focus:outline-none">
@@ -112,7 +114,6 @@ const Menubar = () => {
         </div>
         {isMobileMenuOpen && (
           <div className="md:hidden bg-gray-800 text-white px-4 py-4">
-           
             {menus.map((menu, index) => (
               <div key={index} className="py-2">
                 <button className="w-full text-left hover:text-gray-400" onClick={() => setIsMobileMenuOpen(false)}>{menu.name}</button>
@@ -138,14 +139,13 @@ const Menubar = () => {
         items={products.map(product => <ItemList key={product.id} product={product} />)}
       />
       <Panel
-      route='/pages/wishlist'
         isOpen={isWishlistOpen}
         togglePanel={toggleWishlistPanel}
         title="Wishlist"
+        route='/pages/wishlist'
         items={products.map(product => <ItemList key={product.id} product={product} />)}
       />
-       
-       <Popup isOpen={isPopupOpen} togglePopup={togglePopup} />
+      <Popup isOpen={isPopupOpen} togglePopup={togglePopup} />
     </>
   );
 };

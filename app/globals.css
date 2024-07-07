@@ -34,7 +34,9 @@ body {
 .btn-primary {
   @apply bg-[var(--color-flame)] text-white font-bold py-2 px-4 rounded hover:bg-[var(--color-ember)] transition-colors duration-300;
 }
-
+.slick-prev:before, .slick-next:before {
+  color: var(--color-ash) !important;
+}
 .section-title {
   @apply text-3xl font-bold text-center mb-8 text-[var(--color-charcoal)];
 }

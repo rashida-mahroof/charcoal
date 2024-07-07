@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
 interface PopupProps {
-  isOpen: boolean;
+  isOpen: never | boolean;
   togglePopup: () => void ;
 }
 
- const Popup =  ({ isOpen, togglePopup }:any) => {
+const Popup: React.FC<PopupProps> = ({ isOpen, togglePopup }) => {
   const [isRegister, setIsRegister] = useState(false);
 
   const toggleForm = () => {

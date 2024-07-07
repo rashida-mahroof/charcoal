@@ -24,7 +24,7 @@ interface TableProps {
   onReject?: (id: number) => void;
 }
 
-const CommonTable = ({ columns, data, actions, onEdit, onDelete, onApprove, onReject }:any) => {
+const CommonTable: React.FC<TableProps> = ({ columns, data, actions, onEdit, onDelete, onApprove, onReject }) => {
   const renderActionButton = (icon: IconDefinition, onClick: () => void, color: string, title: string) => (
     <button className={`text-${color}-500 mr-2`} onClick={onClick} title={title}>
       <FontAwesomeIcon icon={icon} />
@@ -35,22 +35,22 @@ const CommonTable = ({ columns, data, actions, onEdit, onDelete, onApprove, onRe
     <table className="w-full border-collapse">
       <thead>
         <tr className="bg-[var(--color-ember)] text-[var(--on-primary)]">
-          {columns.map((column :any, index:any) => (
+          {columns.map((column, index) => (
             <th  key={index} className="border p-2 text-start">{column.header}</th>
           ))}
           {actions && <th className="border p-2">Actions</th>}
         </tr>
       </thead>
       <tbody >
-        {data.map((row:any, rowIndex:any) => (
-          <tr className="border p-2 bg-white " key={rowIndex}>
-            {columns.map((column:any, colIndex:any) => (
+        {data.map((row, rowIndex) => (
+          <tr key={rowIndex}>
+            {columns.map((column, colIndex) => (
               <td key={colIndex} className="border p-2">
                 {column.render ? column.render(row[column.accessor], row) : row[column.accessor]}
               </td>
             ))}
             {actions && (
-              <td className="border p-2 bg-white ">
+              <td className="border p-2 bg-[var(--color-ember)] text-[var(--on-primary)]">
                 {actions.edit && onEdit && renderActionButton(faEdit, () => onEdit(row.id), 'blue', 'Edit')}
                 {actions.delete && onDelete && renderActionButton(faTrash, () => onDelete(row.id), 'red', 'Delete')}
                 {actions.approve && onApprove && renderActionButton(faCheck, () => onApprove(row.id), 'green', 'Approve')}

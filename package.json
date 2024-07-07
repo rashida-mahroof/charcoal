@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prod_start": "NODE_ENV=production node server.js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -18,6 +19,7 @@
     "framer-motion": "^11.2.12",
     "jquery": "^3.7.1",
     "next": "14.2.4",
+    "next-transpile-modules": "^10.0.1",
     "owl.carousel": "^2.3.4",
     "react": "^18",
     "react-dom": "^18",
