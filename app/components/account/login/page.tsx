@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 interface PopupProps {
   isOpen: boolean;
-  togglePopup: () => void;
+  togglePopup:any;
 }
 
 const Popup: React.FC<PopupProps> = ({ isOpen, togglePopup }) => {
