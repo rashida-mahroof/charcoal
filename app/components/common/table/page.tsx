@@ -44,7 +44,7 @@ const CommonTable: React.FC<TableProps> = ({ columns, data, actions, onEdit, onD
       </thead>
       <tbody >
         {data.map((row, rowIndex) => (
-          <tr key={rowIndex}>
+          <tr className="bg-white" key={rowIndex}>
             {columns.map((column, colIndex) => (
               <td key={colIndex} className="border p-2">
                 {column.render ? column.render(row[column.accessor], row) : row[column.accessor]}
