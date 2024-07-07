@@ -52,7 +52,7 @@ const Shop = () => {
                 view ? (
                   <ProductCard key={product.id} product={product} />
                 ) : (
-                  <div className='bg-white p-2'>
+                  <div key={product.id} className='bg-white p-2'>
                     <ItemList key={product.id} product={product} />
                   </div>
                 )
