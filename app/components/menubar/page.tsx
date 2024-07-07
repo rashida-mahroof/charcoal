@@ -112,12 +112,7 @@ const Menubar = () => {
         </div>
         {isMobileMenuOpen && (
           <div className="md:hidden bg-gray-800 text-white px-4 py-4">
-            <Link href='/pages/dashboard/home'>
-              <div className='flex flex-row'>
-                <i className="fa fa-users mx-1" aria-hidden="true"></i>
-                <span>Client Login</span>
-              </div>
-            </Link>
+           
             {menus.map((menu, index) => (
               <div key={index} className="py-2">
                 <button className="w-full text-left hover:text-gray-400" onClick={() => setIsMobileMenuOpen(false)}>{menu.name}</button>

@@ -53,8 +53,8 @@ const AdminDashboard: React.FC = () => {
                             ]}
                             data={mockProducts}
                             actions={{ edit: true, delete: true }}
-                            onEdit={(id) => console.log('Edit product', id)}
-                            onDelete={(id) => console.log('Delete product', id)}
+                            onEdit={(id:any) => console.log('Edit product', id)}
+                            onDelete={(id:any) => console.log('Delete product', id)}
                         />
                     </div>
                 );
@@ -98,13 +98,13 @@ const AdminDashboard: React.FC = () => {
                                 {
                                     header: 'Rating',
                                     accessor: 'rating',
-                                    render: (value) => renderStars(value)
+                                    render: (value:any) => renderStars(value)
                                 },
                                 { header: 'Comment', accessor: 'comment' },
                                 {
                                     header: 'Status',
                                     accessor: 'status',
-                                    render: (value) => (
+                                    render: (value:any) => (
                                         <span className={`px-2 py-1 rounded ${value === 'Approved' ? 'bg-green-200 text-green-800' : 'bg-yellow-200 text-yellow-800'}`}>
                                             {value}
                                         </span>
@@ -117,9 +117,9 @@ const AdminDashboard: React.FC = () => {
                                 reject: true,
                                 delete: true
                             }}
-                            onApprove={(id) => console.log('Approve review', id)}
-                            onReject={(id) => console.log('Reject review', id)}
-                            onDelete={(id) => console.log('Delete review', id)}
+                            onApprove={(id:any) => console.log('Approve review', id)}
+                            onReject={(id:any) => console.log('Reject review', id)}
+                            onDelete={(id:any) => console.log('Delete review', id)}
                         />
                     </div>
                 );

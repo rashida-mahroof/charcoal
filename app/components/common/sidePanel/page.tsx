@@ -10,7 +10,7 @@ interface PanelProps {
   route :string | UrlObject;
 }
 
-const Panel: React.FC<PanelProps> = ({ isOpen, togglePanel, title, items,route }) => {
+const Panel = ({ isOpen, togglePanel, title, items,route }:any) => {
   return (
     <div className={`fixed shadow overflow-y-auto top-0 right-0 w-80 h-screen z-50 bg-white transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
       <div className="p-4 flex flex-col">
@@ -20,7 +20,7 @@ const Panel: React.FC<PanelProps> = ({ isOpen, togglePanel, title, items,route }
         </div>
 
         <div className='flex flex-col'>
-          {items.map((item, index) => (
+          {items.map((item:any, index:any) => (
             <div key={index}>{item}</div>
           ))}
         </div>

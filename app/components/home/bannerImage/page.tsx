@@ -6,7 +6,7 @@ interface BannerProps {
   altText: string;
 }
 
-const BannerImg: React.FC<BannerProps> = ({ imageSrc, altText }) => {
+const BannerImg = ({ imageSrc, altText }:any) => {
   return (
     <div className="relative w-full h-64 lg:h-44 overflow-hidden rounded-lg group">
       <Image

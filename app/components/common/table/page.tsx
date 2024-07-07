@@ -24,7 +24,7 @@ interface TableProps {
   onReject?: (id: number) => void;
 }
 
-const CommonTable: React.FC<TableProps> = ({ columns, data, actions, onEdit, onDelete, onApprove, onReject }) => {
+const CommonTable = ({ columns, data, actions, onEdit, onDelete, onApprove, onReject }:any) => {
   const renderActionButton = (icon: IconDefinition, onClick: () => void, color: string, title: string) => (
     <button className={`text-${color}-500 mr-2`} onClick={onClick} title={title}>
       <FontAwesomeIcon icon={icon} />
@@ -35,16 +35,16 @@ const CommonTable: React.FC<TableProps> = ({ columns, data, actions, onEdit, onD
     <table className="w-full border-collapse">
       <thead>
         <tr className="bg-[var(--color-ember)] text-[var(--on-primary)]">
-          {columns.map((column, index) => (
+          {columns.map((column :any, index:any) => (
             <th  key={index} className="border p-2 text-start">{column.header}</th>
           ))}
           {actions && <th className="border p-2">Actions</th>}
         </tr>
       </thead>
       <tbody >
-        {data.map((row, rowIndex) => (
+        {data.map((row:any, rowIndex:any) => (
           <tr className="border p-2 bg-white " key={rowIndex}>
-            {columns.map((column, colIndex) => (
+            {columns.map((column:any, colIndex:any) => (
               <td key={colIndex} className="border p-2">
                 {column.render ? column.render(row[column.accessor], row) : row[column.accessor]}
               </td>

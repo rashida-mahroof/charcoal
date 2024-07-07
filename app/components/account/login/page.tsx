@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 interface PopupProps {
   isOpen: boolean;
-  togglePopup:any;
+  togglePopup: () => void ;
 }
 
-const Popup: React.FC<PopupProps> = ({ isOpen, togglePopup }) => {
+ const Popup =  ({ isOpen, togglePopup }:any) => {
   const [isRegister, setIsRegister] = useState(false);
 
   const toggleForm = () => {
