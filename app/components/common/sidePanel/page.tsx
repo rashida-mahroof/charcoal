@@ -11,6 +11,7 @@ interface PanelProps {
 }
 
 const Panel: FC<PanelProps> = ({ isOpen, togglePanel, title, items, route }) => {
+  if(!items) return null;
   return (
     <div className={`fixed shadow overflow-y-auto top-0 right-0 w-80 h-screen z-50 bg-white transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
       <div className="p-4 flex flex-col">

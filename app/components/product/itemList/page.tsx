@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 function ItemList({product}:any) {
+  if (!product) return null; 
   return (
     <div key={product.id} className="flex p-2 bg-[var(--color-smoke)] items-center mb-4">
                 <div className="w-1/3">

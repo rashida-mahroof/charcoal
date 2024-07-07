@@ -86,7 +86,7 @@ const Menubar = () => {
           </div>
           <div className='flex flex-row items-center'>
             <div className="flex justify-center">
-              {/* <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={togglePopup}>
+              <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={togglePopup}>
                 <FontAwesomeIcon icon={faUser} />
               </button>
               <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" onClick={toggleWishlistPanel}>
@@ -95,7 +95,7 @@ const Menubar = () => {
               <button className="text-lg font-bold py-2 px-4 rounded-full transition-colors duration-300 flex items-center justify-center" 
               onClick={toggleCartPanel}>
                 <FontAwesomeIcon icon={faShoppingCart} />
-              </button> */}
+              </button>
             </div>
             <div className="md:hidden">
               <button onClick={toggleMobileMenu} className="focus:outline-none">

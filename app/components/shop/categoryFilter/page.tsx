@@ -11,6 +11,8 @@ type CatFilterProps = {
 };
 
 const CatFilter: React.FC<CatFilterProps> = ({ category }) => {
+ // Check if category is defined before accessing its properties
+ if (!category) return null; // Or return some default content
   return (
     <div className="mb-8 bg-white">
       <h2 className="font-semibold mb-4 text-lg bg-[var(--color-ember)] text-[var(--on-primary)] px-1">

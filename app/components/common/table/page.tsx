@@ -30,7 +30,8 @@ const CommonTable: React.FC<TableProps> = ({ columns, data, actions, onEdit, onD
       <FontAwesomeIcon icon={icon} />
     </button>
   );
-
+  if(!data) return null;
+  if(!columns) return null;
   return (
     <table className="w-full border-collapse">
       <thead>
