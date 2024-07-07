@@ -1,9 +1,9 @@
-
 "use client"
 import React, { useState } from 'react';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+
 interface PopupProps {
   isOpen: boolean;
   togglePopup: () => void;
@@ -18,12 +18,12 @@ const Popup: React.FC<PopupProps> = ({ isOpen, togglePopup }) => {
 
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-center ${isOpen ? '' : 'hidden'}`}>
-      <div className="absolute  inset-0 bg-black opacity-50" onClick={togglePopup}></div>
+      <div className="absolute inset-0 bg-black opacity-50" onClick={togglePopup}></div>
       <div className="bg-white md:w-1/3 sm:w-full max-w-sm p-8 rounded-lg shadow-lg z-10">
-      <div className='flex flex-row justify-between items-center'>
-      <h2 className="text-xl font-bold mb-4">{isRegister ? 'Register' : 'Login'}</h2>
-        <button onClick={togglePopup}><FontAwesomeIcon icon={faClose}/></button>
-      </div>
+        <div className='flex flex-row justify-between items-center'>
+          <h2 className="text-xl font-bold mb-4">{isRegister ? 'Register' : 'Login'}</h2>
+          <button onClick={togglePopup}><FontAwesomeIcon icon={faClose} /></button>
+        </div>
         <form>
           <div className="mb-4">
             <label className="block text-gray-700">Email</label>

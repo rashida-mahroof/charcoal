@@ -149,10 +149,8 @@ const Menubar = () => {
         title="Wishlist"
         items={products.map(product => <ItemList key={product.id} product={product} />)}
       />
-      <Popup
-        isOpen={isPopupOpen}
-        togglePopup={togglePopup}
-      />
+       
+       <Popup isOpen={isPopupOpen} togglePopup={togglePopup} />
     </>
   );
 };
