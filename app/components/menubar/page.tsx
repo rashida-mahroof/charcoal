@@ -139,9 +139,11 @@ const Menubar = () => {
         isOpen={isCartOpen}
         togglePanel={toggleCartPanel}
         title="Cart"
+        route='/pages/cart'
         items={products.map(product => <ItemList key={product.id} product={product} />)}
       />
       <Panel
+      route='/pages/wishlist'
         isOpen={isWishlistOpen}
         togglePanel={toggleWishlistPanel}
         title="Wishlist"

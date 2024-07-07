@@ -5,6 +5,7 @@ import Premium from '../../../assets/Charcoal-2.png';
 import Lump from '../../../assets/hardwood-lump-charcoal-jpg.jpg';
 import BBQ from '../../../assets/bbq.jpg';
 import Link from 'next/link';
+import TitleMain from '../../common/titleMain/page';
 
 const categories = [
   { id: 'premium', name: 'Premium', image: Premium },
@@ -15,8 +16,8 @@ const categories = [
 
 const ShopByCategories = () => {
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-semibold text-center mb-8">Shop by Categories</h2>
+    <section className="py-10 px-4 max-w-7xl mx-auto">
+      <TitleMain>Shop by Categories</TitleMain>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {categories.map((category) => (
           <Link href='/pages/shop' key={category.id}>

@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ProductCard from '../../product/itemCard/page';
+import TitleMain from '../../common/titleMain/page';
 
 const products = [
   { id: 1, name: 'Product 1', price: '₹9.00 - $60.00', rating: 5, image: ProdImage },
@@ -22,7 +23,7 @@ const OurBestsellers = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -30,7 +31,7 @@ const OurBestsellers = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
         }
       },
       {
@@ -49,9 +50,9 @@ const OurBestsellers = () => {
   };
 
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-semibold text-center mb-4">Our Bestsellers</h2>
-      <p className="text-center text-gray-600 mb-8">Looking for something specific? Shop by category to find your perfect piece of jewelry.</p>
+    <section className="py-10 px-4 max-w-7xl mx-auto">
+        <TitleMain>Our Bestsellers</TitleMain>
+      {/* <p className=" text-gray-600 mb-8">Looking for something specific? Shop by category to find your perfect piece of jewelry.</p> */}
       <Slider {...settings}>
         {products.map(product => (
           <div key={product.id} className="px-2">

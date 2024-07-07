@@ -9,7 +9,7 @@ import ProductCard from '../../product/itemCard/page';
 import products from '../../../constants';
 import TitleMain from '../../common/titleMain/page';
 
-const FeaturedItems = () => {
+const NewItems = () => {
   const settings = {
     // dots: true,
     infinite: true,
@@ -37,7 +37,7 @@ const FeaturedItems = () => {
   return (
     <section className="py-10">
       <div className="container mx-auto px-4">
-         <TitleMain >Our Featured Products</TitleMain>
+         <TitleMain >New Items</TitleMain>
         <Slider {...settings}>
           {products.map((product) => (
             <ProductCard product={product} />
@@ -48,4 +48,4 @@ const FeaturedItems = () => {
   );
 };
 
-export default FeaturedItems;
+export default NewItems;

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 interface PopupProps {
   isOpen: boolean;
   togglePopup: () => void;
@@ -18,7 +19,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, togglePopup }) => {
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-center ${isOpen ? '' : 'hidden'}`}>
       <div className="absolute  inset-0 bg-black opacity-50" onClick={togglePopup}></div>
-      <div className="bg-white w-1/3 max-w-sm p-8 rounded-lg shadow-lg z-10">
+      <div className="bg-white md:w-1/3 sm:w-full max-w-sm p-8 rounded-lg shadow-lg z-10">
       <div className='flex flex-row justify-between items-center'>
       <h2 className="text-xl font-bold mb-4">{isRegister ? 'Register' : 'Login'}</h2>
         <button onClick={togglePopup}><FontAwesomeIcon icon={faClose}/></button>
@@ -45,9 +46,9 @@ const Popup: React.FC<PopupProps> = ({ isOpen, togglePopup }) => {
             </div>
           )}
           <div className="flex items-center justify-between">
-            <button type="submit" className="bg-[var(--color-ember)] text-white px-4 py-2 rounded-lg">
+            <Link href='/pages/dashboard' type="submit" className="bg-[var(--color-ember)] text-white px-4 py-2 rounded-lg">
               {isRegister ? 'Register' : 'Login'}
-            </button>
+            </Link>
             <button type="button" className="text-gray-700" onClick={togglePopup}>
               Cancel
             </button>

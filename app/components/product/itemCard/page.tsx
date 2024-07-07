@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 const ProductCard = ({ product }: any) => (
     <Link href = '/pages/itemDetails'>
-     <div className="flex flex-col items-center bg-white">
+     <div className="flex flex-col items-center bg-white m-1">
       <div className="relative w-full aspect-square mb-4 group overflow-hidden">
         <Image 
           src={product.image} 
@@ -24,8 +24,9 @@ const ProductCard = ({ product }: any) => (
           </span>
         )}
       </div>
-      <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
-      <p className="text-gray-600 mb-2 font-bold text-base">{product.price}</p>
+      <h3 className="text-sm font-semibold ">{product.name}</h3>
+      <p className="text-gray-600 ">{product.desc}</p>
+      <p className=" font-bold text-base">{product.price}</p>
       <div className="flex">
         {[...Array(product.rating)].map((_, i) => (
           <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-400 w-4 h-4" />

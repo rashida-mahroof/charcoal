@@ -20,6 +20,7 @@ import CallToAction from '@/app/components/home/calltoaction/page';
 import About from '@/app/components/home/about/page';
 import BannerImg from '@/app/components/home/bannerImage/page';
 import bnr from '../../assets/banner.jpg';
+import NewItems from '@/app/components/home/newItems/page';
 function HomePage() {
   return (
     <div>
@@ -31,15 +32,18 @@ function HomePage() {
         <ShopByCategories />
        
         <OurBestsellers />
-        <WhyChose />
-        <CallToAction />
-        <div className="container mx-auto my-5">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <FeaturedItems />
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 my-6">
         <BannerImg imageSrc={bnr} altText="Banner 1" />
         <BannerImg imageSrc={bnr} altText="Banner 2" />
       </div>
-    </div>
-        <FeaturedItems />
+        <NewItems/>
+        
+        <WhyChose />
+        <CallToAction />
+       
+       
+        
       </MainLayout>
     </div>
 
