@@ -40,7 +40,9 @@ const NewItems = () => {
          <TitleMain >New Items</TitleMain>
         <Slider {...settings}>
           {products.map((product) => (
+            <div key={product.id} className="">
             <ProductCard product={product} />
+          </div>
           ))}
         </Slider>
       </div>

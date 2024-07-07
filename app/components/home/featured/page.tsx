@@ -40,7 +40,9 @@ const FeaturedItems = () => {
          <TitleMain >Our Featured Products</TitleMain>
         <Slider {...settings}>
           {products.map((product) => (
-            <ProductCard product={product} />
+           <div key={product.id} className="">
+           <ProductCard product={product} />
+         </div>
           ))}
         </Slider>
       </div>
