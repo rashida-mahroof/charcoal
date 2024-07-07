@@ -51,7 +51,7 @@ const CommonTable: React.FC<TableProps> = ({ columns, data, actions, onEdit, onD
               </td>
             ))}
             {actions && (
-              <td className="border p-2 bg-[var(--color-ember)] text-[var(--on-primary)]">
+              <td className="border p-2 ">
                 {actions.edit && onEdit && renderActionButton(faEdit, () => onEdit(row.id), 'blue', 'Edit')}
                 {actions.delete && onDelete && renderActionButton(faTrash, () => onDelete(row.id), 'red', 'Delete')}
                 {actions.approve && onApprove && renderActionButton(faCheck, () => onApprove(row.id), 'green', 'Approve')}
