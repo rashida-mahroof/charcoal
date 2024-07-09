@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCreditCard, faIdCard, faTimes ,faCheckCircle} from '@fortawesome/free-solid-svg-icons';
+import { faCashRegister, faIdCard, faTimes ,faCheckCircle} from '@fortawesome/free-solid-svg-icons';
 import MainLayout from '@/app/layout/page';
 import products from '../../constants'
 import Image from 'next/image';
@@ -22,7 +22,7 @@ const CartPage = () => {
   };
 
   const getNumericPrice = (price:any) => {
-    const match = price.match(/₹(\d+(\.\d{1,2})?)/);
+    const match = price.match(/QAR (\d+(\.\d{1,2})?)/);
     return match ? parseFloat(match[1]) : 0;
   };
 
@@ -101,33 +101,30 @@ const CartPage = () => {
                 <div className="flex items-center mb-2">
                   <input type="radio" id="creditCard" name="paymentMethod" className="mr-2" checked />
                   <label htmlFor="creditCard" className="flex items-center">
-                    <FontAwesomeIcon icon={faCreditCard} className="mr-2" /> Credit Card
+                    <FontAwesomeIcon icon={faCashRegister} className="mr-2" /> Cash on Delivery
                   </label>
                 </div>
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <input type="radio" id="paypal" name="paymentMethod" className="mr-2" />
                   <label htmlFor="paypal" className="flex items-center">
                     <FontAwesomeIcon icon={faIdCard} className="mr-2" /> PayPal
                   </label>
-                </div>
+                </div> */}
               </div>
               <div className="mb-4">
-                <label className="block mb-2">Name On Card</label>
+                <label className="block mb-2">Name</label>
                 <input type="text" className="w-full border p-2" placeholder="John Carter" />
               </div>
               <div className="mb-4">
-                <label className="block mb-2">Card Number</label>
-                <input type="text" className="w-full border p-2" placeholder="**** **** **** 2153" />
+                <label className="block mb-2">Mobile Number</label>
+                <input type="number" className="w-full border p-2" placeholder="" />
               </div>
               <div className="flex mb-4">
-                <div className="w-1/2 mr-2">
-                  <label className="block mb-2">Expiration Date</label>
-                  <input type="text" className="w-full border p-2" placeholder="03/20" />
+                <div className="w-full mr-2">
+                  <label className="block mb-2">Address</label>
+                  <textarea className="w-full border p-2" placeholder="" />
                 </div>
-                <div className="w-1/2 ml-2">
-                  <label className="block mb-2">CVV</label>
-                  <input type="text" className="w-full border p-2" placeholder="***" />
-                </div>
+               
               </div>
               <div className="border-t pt-4">
                 <div className="flex justify-between mb-2">

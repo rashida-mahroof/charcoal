@@ -26,7 +26,7 @@ function HomePage() {
     <div>
       <MainLayout>
 
-        <Hero />
+        <Banner />
         <ServiceHighlights />
 
         <ShopByCategories />

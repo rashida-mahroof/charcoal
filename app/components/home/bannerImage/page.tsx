@@ -8,7 +8,7 @@ interface BannerProps {
 
 const BannerImg = ({ imageSrc, altText }:any) => {
   return (
-    <div className="relative w-full h-64 lg:h-44 overflow-hidden rounded-lg group">
+    <div className="bg-white relative w-full h-64 lg:h-44 overflow-hidden rounded-lg group p-2">
       <Image
         src={imageSrc}
         alt={altText}

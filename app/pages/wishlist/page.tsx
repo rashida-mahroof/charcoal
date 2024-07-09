@@ -40,9 +40,9 @@ const WishlistPage: React.FC = () => {
        </Link>
      </div>
    ) : (
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
        {wishlist.map(product => (
-         <div key={product.id} className="border rounded-lg overflow-hidden shadow-lg">
+         <div key={product.id} className="bg-white border rounded-lg overflow-hidden shadow-lg">
            <div className="relative">
              <Image src={product.image} alt={product.name} width={0} height={0} className="w-full h-48 object-cover" />
              <button
@@ -53,12 +53,12 @@ const WishlistPage: React.FC = () => {
              </button>
            </div>
            <div className="p-4">
-             <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
+             <h2 className="text-base font-semibold mb-2">{product.name}</h2>
              <p className="text-gray-600 mb-4">${product.price}</p>
              <div className="flex justify-between items-center">
-              <div className='w-1/2'>
+              <div className=''>
               <CartButton > Add To Cart</CartButton></div>
-               <FontAwesomeIcon icon={faHeart} className="text-red-500 text-2xl" />
+               {/* <FontAwesomeIcon icon={faHeart} className="text-red-500 text-2xl" /> */}
              </div>
            </div>
          </div>

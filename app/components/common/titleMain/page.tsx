@@ -2,7 +2,7 @@ import React from 'react'
 
 function TitleMain({children}:any) {
   return (
-    <h2 className="text-2xl font-semibold  mb-5">{children}</h2>
+    <h2 className="text-xl font-semibold uppercase mb-5">{children}</h2>
   )
 }
 

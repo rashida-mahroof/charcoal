@@ -7,13 +7,13 @@ import CommonTable from '@/app/components/common/table/page';
 
 // Mock data (replace with actual data fetching in a real application)
 const mockProducts = [
-    { id: 1, name: 'Product 1', price: '₹100', stock: 50 },
-    { id: 2, name: 'Product 2', price: '₹200', stock: 30 },
+    { id: 1, name: 'Product 1', price: 'QAR 100', stock: 50 },
+    { id: 2, name: 'Product 2', price: 'QAR 200', stock: 30 },
 ];
 
 const mockOrders = [
-    { id: 1, customer: 'John Doe', total: '₹300', status: 'Shipped' },
-    { id: 2, customer: 'Jane Smith', total: '₹450', status: 'Processing' },
+    { id: 1, customer: 'John Doe', total: 'QAR 300', status: 'Shipped' },
+    { id: 2, customer: 'Jane Smith', total: 'QAR 450', status: 'Processing' },
 ];
 
 const mockUsers = [
