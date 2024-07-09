@@ -69,7 +69,7 @@ const Menubar = () => {
                 <input
                   type="text"
                   placeholder="Search for 'chicken'"
-                  className="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
                 />
                 <FontAwesomeIcon icon={faSearch} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faUser, faEdit, faTrash, faBox, faShoppingCart, faUsers, faSearch, faStar, faCheck, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 import CommonTable from '@/app/components/common/table/page';
-
+import categories from '@/app/categories';
 // Mock data (replace with actual data fetching in a real application)
 const mockProducts = [
     { id: 1, name: 'Product 1', price: 'QAR 100', stock: 50 },
@@ -53,8 +53,8 @@ const AdminDashboard: React.FC = () => {
                             ]}
                             data={mockProducts}
                             actions={{ edit: true, delete: true }}
-                            onEdit={(id:any) => console.log('Edit product', id)}
-                            onDelete={(id:any) => console.log('Delete product', id)}
+                            onEdit={(id: any) => console.log('Edit product', id)}
+                            onDelete={(id: any) => console.log('Delete product', id)}
                         />
                     </div>
                 );
@@ -98,13 +98,13 @@ const AdminDashboard: React.FC = () => {
                                 {
                                     header: 'Rating',
                                     accessor: 'rating',
-                                    render: (value:any) => renderStars(value)
+                                    render: (value: any) => renderStars(value)
                                 },
                                 { header: 'Comment', accessor: 'comment' },
                                 {
                                     header: 'Status',
                                     accessor: 'status',
-                                    render: (value:any) => (
+                                    render: (value: any) => (
                                         <span className={`px-2 py-1 rounded ${value === 'Approved' ? 'bg-green-200 text-green-800' : 'bg-yellow-200 text-yellow-800'}`}>
                                             {value}
                                         </span>
@@ -117,9 +117,9 @@ const AdminDashboard: React.FC = () => {
                                 reject: true,
                                 delete: true
                             }}
-                            onApprove={(id:any) => console.log('Approve review', id)}
-                            onReject={(id:any) => console.log('Reject review', id)}
-                            onDelete={(id:any) => console.log('Delete review', id)}
+                            onApprove={(id: any) => console.log('Approve review', id)}
+                            onReject={(id: any) => console.log('Reject review', id)}
+                            onDelete={(id: any) => console.log('Delete review', id)}
                         />
                     </div>
                 );
@@ -132,6 +132,18 @@ const AdminDashboard: React.FC = () => {
                             <div>
                                 <label htmlFor="productName" className="block mb-1">Product Name</label>
                                 <input type="text" id="productName" className="w-full border rounded p-2" />
+                            </div>
+                            <div>
+                            <label htmlFor="cat" className="block mb-1">Category</label>
+                               
+                                <select name="Category" id="1" className='p-2'>
+                                    {categories.map((category, index) => (
+                                        <option key={index} value={category}>
+                                            {category}
+                                        </option>
+                                    ))}
+                                </select>
+
                             </div>
                             <div>
                                 <label htmlFor="productPrice" className="block mb-1">Price</label>
@@ -157,7 +169,7 @@ const AdminDashboard: React.FC = () => {
     return (
         <div className="flex h-screen bg-gray-100 ">
             {/* Sidebar */}
-            <div className={ `flex flex-col justify-between bg-gray-800 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
+            <div className={`flex flex-col justify-between bg-gray-800 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
                 <nav>
                     <a href="#" className={`block py-2.5 px-4 rounded transition duration-200 ${activeTab === 'products' ? 'bg-[var(--color-ember)]' : 'hover:bg-gray-700'}`} onClick={() => {
                         setActiveTab('products');
@@ -179,12 +191,12 @@ const AdminDashboard: React.FC = () => {
                     </a>
                 </nav>
                 <div className="relative px-4">
-                <button className="flex items-center focus:outline-none" title="User Account">
-                  <FontAwesomeIcon icon={faUser} className="text-white text-xl" />
-                  <span className="ml-2 text-white">Admin</span>
-                </button>
-                {/* You can add a dropdown menu here in the future */}
-              </div>
+                    <button className="flex items-center focus:outline-none" title="User Account">
+                        <FontAwesomeIcon icon={faUser} className="text-white text-xl" />
+                        <span className="ml-2 text-white">Admin</span>
+                    </button>
+                    {/* You can add a dropdown menu here in the future */}
+                </div>
             </div>
 
             {/* Main Content */}
