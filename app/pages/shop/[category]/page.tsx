@@ -2,19 +2,20 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTh, faThList, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import products from '../../constants';
+import products from '../../../constants';
 import ProductCard from '@/app/components/product/itemCard/page';
 import MainLayout from '@/app/layout/page';
 import CatFilter from '@/app/components/shop/categoryFilter/page';
 import ItemList from '@/app/components/product/itemList/page';
-import Categories from '../../categories';
-
+import Categories from '../../../categories';
+import { useParams } from 'next/navigation';
 const categories = {
   name: 'Category',
   items: Categories,
 };
 
 const Shop = () => {
+  const { category } = useParams(); 
   const [view, setView] = useState(true);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
@@ -23,6 +24,7 @@ const Shop = () => {
   return (
     <MainLayout>
       <div className="container mx-auto py-6 px-4">
+      
         <div className="flex flex-col md:flex-row justify-between items-center mb-4">
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
             <input
@@ -55,13 +57,14 @@ const Shop = () => {
           </div>
         </div>
         <div className="flex flex-col md:flex-row">
-          <aside className="w-full md:w-1/4 pr-4 mb-4 md:mb-0">
+          <aside className="w-full md:w-1/4 pr-4 mb-4 md:mb-0 sticky h-min top-3.5 flex-1">
             
             <div className="hidden md:block">
               <CatFilter category={categories} />
             </div>
           </aside>
           <main className="w-full md:w-3/4">
+          <h6 className="text-xl font-bold mb-2">SHOP {category} </h6>
             <div className={`grid gap-4 ${view ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
               {products.map(product => (
                 view ? (

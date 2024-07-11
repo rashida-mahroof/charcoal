@@ -9,6 +9,7 @@ type Category = {
 type CatFilterProps = {
   category: Category;
 };
+const formatCategoryName = (name:String) => name.toLowerCase().replace(/\s+/g, '-').toLocaleUpperCase();
 
 const CatFilter: React.FC<CatFilterProps> = ({ category }) => {
  // Check if category is defined before accessing its properties
@@ -21,7 +22,7 @@ const CatFilter: React.FC<CatFilterProps> = ({ category }) => {
       <ul className="space-y-2">
         {category.items.map((item, index) => (
           <li key={index}>
-            <Link href="#" className="block px-4 py-2 rounded hover:bg-gray-100">
+            <Link href={`/pages/shop/${formatCategoryName(category.name)}`} className="block px-4 py-2 rounded hover:bg-gray-100">
               {item}
             </Link>
           </li>

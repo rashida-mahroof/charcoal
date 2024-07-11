@@ -56,8 +56,10 @@ const Menubar = () => {
   const toggleMobileSidebar = () => {
     setIsMobileSidebarOpen(!isMobileSidebarOpen);
   };
+  const formatCategoryName = (name:String) => name.toLowerCase().replace(/\s+/g, '-').toLocaleUpperCase();
 
   return (
+    
     <>
       <div className={`bg-white text-gray-800 shadow-md ${isSticky ? 'fixed top-0 left-0 right-0 z-50' : ''}`}>
         <div className="container mx-auto">
@@ -93,41 +95,40 @@ const Menubar = () => {
               <FontAwesomeIcon icon={isMobileSidebarOpen ? faTimes : faBars} className="text-2xl" />
             </button>
           </div>
-          
+
           {/* Menu bar */}
           <nav className="hidden md:flex justify-between items-center py-2 px-4  relative">
             {menus.map((menu, index) => (
               <div key={index} className="relative">
                 {menu.dropdown ? (
-      <button
-        onClick={toggleDropdown}
-        className="text-xs font-medium hover:text-[var(--color-ember)] flex items-center capitalize"
-      >
-        {menu.name}
-        {menu.icon && (
-          <FontAwesomeIcon
-            icon={menu.icon}
-            className={`ml-1 transition-transform duration-200 ${
-              isDropdownOpen ? 'transform rotate-180' : ''
-            }`}
-          />
-        )}
-      </button>
-    ) : (
-      <Link href={'/pages/shop'} passHref className="text-xs font-medium hover:text-[var(--color-ember)] flex items-center capitalize">
-       
-          {menu.name}
-          {menu.icon && (
-            <FontAwesomeIcon icon={menu.icon} className="ml-1" />
-          )}
-        
-      </Link>)}
+                  <button
+                    onClick={toggleDropdown}
+                    className="text-xs font-medium hover:text-[var(--color-ember)] flex items-center capitalize"
+                  >
+                    {menu.name}
+                    {menu.icon && (
+                      <FontAwesomeIcon
+                        icon={menu.icon}
+                        className={`ml-1 transition-transform duration-200 ${isDropdownOpen ? 'transform rotate-180' : ''
+                          }`}
+                      />
+                    )}
+                  </button>
+                ) : (
+                  <Link href={`/pages/shop/${formatCategoryName(menu.name)}`}  passHref className="text-xs font-medium hover:text-[var(--color-ember)] flex items-center capitalize">
+
+                    {menu.name}
+                    {menu.icon && (
+                      <FontAwesomeIcon icon={menu.icon} className="ml-1" />
+                    )}
+
+                  </Link>)}
                 {menu.dropdown && isDropdownOpen && (
                   <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
                     {menus.map((category, catIndex) => (
-                      <Link href="/pages/shop" key={catIndex} className="capitalize block px-4 py-2 text-xs text-gray-700 hover:bg-gray-100">
-                        {category.name}
-                      </Link>
+                     <Link href={`/pages/shop/${formatCategoryName(category.name)}`} key={catIndex} className="capitalize block px-4 py-2 text-xs text-gray-700 hover:bg-gray-100">
+                     {category.name}
+                   </Link>
                     ))}
                   </div>
                 )}
@@ -162,7 +163,7 @@ const Menubar = () => {
               {menu.dropdown && isDropdownOpen && (
                 <div className="mt-2 pl-4">
                   {menus.map((category, catIndex) => (
-                    <Link href="#" key={catIndex} className="capitalize block py-2 text-sm text-gray-700 hover:text-[var(--color-ember)]">
+                    <Link href={`/pages/shop/${formatCategoryName(category.name)}`} key={catIndex} className="capitalize block py-2 text-sm text-gray-700 hover:text-[var(--color-ember)]">
                       {category.name}
                     </Link>
                   ))}
