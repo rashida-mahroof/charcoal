@@ -68,6 +68,7 @@ const Shop = () => {
             <div className={`grid gap-4 ${view ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
               {products.map(product => (
                 view ? (
+                  
                   <ProductCard key={product.id} product={product} />
                 ) : (
                   <div key={product.id} className='bg-white p-2'>

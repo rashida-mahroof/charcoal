@@ -5,10 +5,10 @@ import Slider from "react-slick";
 import MainLayout from '@/app/layout/page';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import image from '../../assets/rockwood-charcoal.webp';
-import image1 from '../../assets/coal.webp';
-import image2 from '../../assets/premium.webp';
-import image3 from '../../assets/bbq.jpg';
+import image from '../../../../assets/rockwood-charcoal.webp';
+import image1 from '../../../../assets/coal.webp';
+import image2 from '../../../../assets/premium.webp';
+import image3 from '../../../../assets/bbq.jpg';
 import WhyChose from '@/app/components/home/whychose/page';
 import CartButton from '@/app/components/product/cartButton/page';
 import WishListButton from '@/app/components/product/wishlistButton/page';
@@ -18,11 +18,14 @@ import ProductCard from '@/app/components/product/itemCard/page';
 import products from '@/app/constants';
 import TitleMain from '@/app/components/common/titleMain/page';
 import BannerImg from '@/app/components/home/bannerImage/page';
-import bnr from '../../assets/banner.jpg';
+import bnr from '../../../../assets/banner.jpg';
+import { useParams } from 'next/navigation';
 
-const product = {
+const productX = {
+  id: '1001',
   name: 'Product Name',
   price: 'QAR 99.00',
+  cat:'BBQ Charcoal',
   description: 'This is a great product that you will love!',
   desc1: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam suscipit illum quia exercitationem alias impedit illo, labore sapiente quasi architecto quod officia iste fugiat nihil nobis at adipisci inventore! Alias!',
   images: [
@@ -37,7 +40,14 @@ const product = {
 };
 
 const Details = () => {
-  const [mainImage, setMainImage] = useState(product.images[0]);
+  const { category, product: productId } = useParams();
+  const product = products.find(p => p.id === parseInt(productId.toString()));
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
+  const [mainImage, setMainImage] = useState(productX.images[0]);
   const [quantity, setQuantity] = useState(1); // State for quantity
   const [reviews, setReviews] = useState([
     { name: 'John Doe', rating: 4, comment: 'Great product!' },
@@ -51,7 +61,7 @@ const Details = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     focusOnSelect: true,
-    beforeChange: (current: any, next: any) => setMainImage(product.images[next]),
+    beforeChange: (current: any, next: any) => setMainImage(productX.images[next]),
   };
   const similarsettings = {
     infinite: true,
@@ -59,7 +69,7 @@ const Details = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     focusOnSelect: true,
-    beforeChange: (current: any, next: any) => setMainImage(product.images[next]),
+    beforeChange: (current: any, next: any) => setMainImage(productX.images[next]),
   };
 
   const incrementQuantity = () => {
@@ -88,7 +98,7 @@ const Details = () => {
             <Image src={mainImage} alt="Product Image" width={600} height={600} className="rounded-lg w-full" />
           </div>
           <Slider {...settings}>
-            {product.images.map((image, index) => (
+            {productX.images.map((image, index) => (
               <div key={index} className="p-2">
                 <Image src={image} alt={`Product Image ${index + 1}`} width={100} height={100} className="cursor-pointer rounded-lg" />
               </div>
@@ -99,12 +109,13 @@ const Details = () => {
         <div className="w-full lg:w-1/3 p-4">
           <h1 className="text-3xl font-semibold mb-4">{product.name}</h1>
           <p className="text-xl text-[var(--color-ember)] text-gray-600 mb-4">{product.price}</p>
-          <p className="text-gray-600 mb-2">SKU: {product.sku}</p>
-          {product.discount && (
-            <p className=" mb-2">Discount: {product.discount}</p>
+          <p className="text-gray-600 mb-2">SKU: {productX.sku}</p>
+          <p className="text-gray-600 mb-2">Cat: {product.cat}</p>
+          {productX.discount && (
+            <p className=" mb-2">Discount: {productX.discount}</p>
           )}
-          <p className="text-gray-800 mb-4">{product.description}</p>
-          <p className="text-gray-800 mb-4">{product.desc1}</p>
+          <p className="text-gray-800 mb-4">{productX.description}</p>
+          <p className="text-gray-800 mb-4">{productX.desc1}</p>
           <div className="flex items-center mb-4">
             <button onClick={decrementQuantity} className="bg-gray-200 text-gray-700 px-4 py-1 rounded-lg mr-2">-</button>
             <span className="text-xl">{quantity}</span>

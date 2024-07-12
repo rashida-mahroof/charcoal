@@ -11,7 +11,8 @@ function ProductCard ({ product }: any) {
   if(!product) return null;
   return (
     (
-      <Link href = '/pages/itemDetails'>
+      
+      <Link href={`/pages/shop/${product.cat}/${product.id}`} passHref> 
        <div className="flex flex-col items-center bg-white m-1">
         <div className="relative w-full aspect-square mb-4 group overflow-hidden">
           <Image 
