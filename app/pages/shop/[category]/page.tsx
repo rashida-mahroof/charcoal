@@ -13,7 +13,6 @@ const categories = {
   name: 'Category',
   items: Categories,
 };
-const formatCategoryName = (name:String) => name.toLowerCase().replace(/\s+/g, '-');
 const parseCategoryName = (name:String) => name.replace(/-/g, ' ');
 
 const Shop = () => {
@@ -69,7 +68,7 @@ const Shop = () => {
           <h6 className="text-xl font-bold mb-2">SHOP {categoryName} </h6>
             <div className={`grid gap-4 ${view ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
             {products
-            .filter(product => product.cat.toLowerCase() === categoryName.toLowerCase())
+            // .filter(product => product.cat.toLowerCase() === categoryName.toLowerCase())
             .map(product => (
               view ? (
                 <ProductCard key={product.id} product={product} />
@@ -86,15 +85,5 @@ const Shop = () => {
     </MainLayout>
   );
 };
-export const generateStaticParams = async () => {
-  // Get all unique categories
-  const uniqueCategories = [...new Set(products.map(product => formatCategoryName(product.cat)))];
-  
-  // Generate paths for each category
-  const paths = uniqueCategories.map(category => ({
-    params: { category },
-  }));
-  
-  return paths;
-};
+
 export default Shop;

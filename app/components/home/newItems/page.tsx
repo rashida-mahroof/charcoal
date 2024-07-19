@@ -36,7 +36,7 @@ const NewItems = () => {
 
   return (
     <section className="py-10">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 bg-white">
          <TitleMain >New Items</TitleMain>
         <Slider {...settings}>
           {products.map((product) => (

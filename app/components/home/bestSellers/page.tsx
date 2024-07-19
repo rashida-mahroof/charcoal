@@ -27,6 +27,7 @@ const OurBestsellers = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    nav:true,
     responsive: [
       {
         breakpoint: 1024,
@@ -50,17 +51,20 @@ const OurBestsellers = () => {
   };
 
   return (
-    <section className="py-10 px-4 max-w-7xl mx-auto container">
-        <TitleMain>Our Bestsellers</TitleMain>
+    <div className="py-10 mx-auto container">
+      <div className='px-4 bg-white'>
+      <TitleMain>Our Bestsellers</TitleMain>
       {/* <p className=" text-gray-600 mb-8">Looking for something specific? Shop by category to find your perfect piece of jewelry.</p> */}
-      <Slider {...settings}>
+      <Slider {...settings} className='w-screen'>
         {products.map(product => (
-          <div key={product.id} className="">
+          <div key={product.id} className="p-2">
             <ProductCard product={product} />
           </div>
         ))}
       </Slider>
-    </section>
+      </div>
+       
+    </div>
   );
 };
 

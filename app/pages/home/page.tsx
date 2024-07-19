@@ -33,7 +33,7 @@ function HomePage() {
        
         <OurBestsellers />
         <FeaturedItems />
-        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 my-6">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-4 my-6">
         <BannerImg imageSrc={bnr} altText="Banner 1" />
         <BannerImg imageSrc={bnr} altText="Banner 2" />
       </div>

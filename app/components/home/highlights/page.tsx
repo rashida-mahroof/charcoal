@@ -43,7 +43,7 @@ const ServiceHighlights = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 flex overflow-x-auto space-x-4 md:space-x-0">
             {serviceItems.map((item, index) => (
-              <div key={index} className="min-w-[250px] md:min-w-0">
+              <div key={index} className="min-w-[180px] md:min-w-0">
                 <ServiceItem {...item} />
               </div>
             ))}

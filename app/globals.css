@@ -27,8 +27,11 @@
 body {
   scroll-behavior: smooth;
   font-size: 13px;
-  background-color: var(--color-smoke);
+  background-image: url(../app/assets/bg.avif);
+  background-size: cover;
+  /* background-color: var(--color-smoke); */
   color: var(--color-charcoal);
+  
 }
 
 .btn-primary {

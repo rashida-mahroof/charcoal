@@ -69,6 +69,20 @@ const Details = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        }
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 2,
+        }
+      }
+    ],
     beforeChange: (current: any, next: any) => setMainImage(productX.images[next]),
   };
 
@@ -93,7 +107,7 @@ const Details = () => {
     <MainLayout>
       <div className="container mx-auto py-6 flex flex-col lg:flex-row">
         {/* Right side: product images */}
-        <div className="w-full lg:w-2/3 p-4 ">
+        <div className="w-full lg:w-2/3 md:mr-2">
           <div className="mb-4 h-auto overflow-hidden">
             <Image src={mainImage} alt="Product Image" width={600} height={600} className="rounded-lg w-full" />
           </div>
@@ -106,7 +120,7 @@ const Details = () => {
           </Slider>
         </div>
         {/* Left side: product details */}
-        <div className="w-full lg:w-1/3 p-4">
+        <div className="w-full lg:w-1/3 p-4 bg-white">
           <h1 className="text-3xl font-semibold mb-4">{product.name}</h1>
           <p className="text-xl text-[var(--color-ember)] text-gray-600 mb-4">{product.price}</p>
           <p className="text-gray-600 mb-2">SKU: {productX.sku}</p>
@@ -126,7 +140,7 @@ const Details = () => {
         </div>
       </div>
 
-      <div className="container mx-auto py-6 bg-white px-3 flex">
+      <div className="container mx-auto py-6 bg-white px-3 flex flex-col md:flex-row">
         <div className="w-full lg:w-2/3 pr-4 overflow-y-scroll max-h-[500px]">
           <h2 className="text-2xl font-semibold mb-4">Customer Reviews</h2>
           <ul className="mb-4">
@@ -192,6 +206,7 @@ const Details = () => {
         
       </div>
       <div className='py-10 container mx-auto'>
+        <div className='px-4 bg-white'>
         <TitleMain>Similar Products</TitleMain>
         <Slider {...similarsettings}>
             {products.map((product, index) => (
@@ -200,6 +215,8 @@ const Details = () => {
                   </div>
             ))}
           </Slider>
+        </div>
+        
         </div>
         <div className='container mx-auto pb-10'>
         <BannerImg imageSrc={bnr} altText="Banner 1" />
