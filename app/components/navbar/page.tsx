@@ -15,13 +15,13 @@ function NavBar() {
             <Link href="mailto:info@charc.ae" className="hover:underline">info@charc.ae</Link>
           </div>
         </div>
-        <div className="flex items-center space-x-2 flex-row">
+        {/* <div className="flex items-center space-x-2 flex-row">
           <FontAwesomeIcon icon={faHeadphonesAlt} className="text-3xl font-light" />
           <div className="flex-col">
             <p className="uppercase">Toll Free</p>
             <Link href="tel:800724249" className="hover:underline">800 724249</Link>
           </div>
-        </div>
+        </div> */}
         <div className="flex items-center space-x-2 flex-row">
           <FontAwesomeIcon icon={faMobileAlt} className="text-3xl font-light" />
           <div className="flex-col">

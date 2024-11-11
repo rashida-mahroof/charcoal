@@ -16,7 +16,7 @@ const categories = {
 const parseCategoryName = (name:String) => name.replace(/-/g, ' ');
 
 const Shop = () => {
-  const { category } = useParams(); 
+  const { category,items } = useParams(); 
   const [view, setView] = useState(true);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
@@ -45,7 +45,7 @@ const Shop = () => {
               </button>
               {isDropdownOpen && (
                 <div className="mt-2 z-10 absolute">
-                  <CatFilter category={categories} />
+                  <CatFilter categoryName={categoryName} />
                 </div>
               )}
             </div>
@@ -61,11 +61,11 @@ const Shop = () => {
           <aside className="w-full md:w-1/4 pr-4 mb-4 md:mb-0 sticky h-min top-3.5 flex-1">
             
             <div className="hidden md:block">
-              <CatFilter category={categories} />
+              <CatFilter categoryName={categoryName} />
             </div>
           </aside>
           <main className="w-full md:w-3/4">
-          <h6 className="text-xl font-bold mb-2">SHOP {categoryName} </h6>
+          <h6 className="text-xl font-bold mb-2 uppercase">SHOP {categoryName} </h6>
             <div className={`grid gap-4 ${view ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
             {products
             // .filter(product => product.cat.toLowerCase() === categoryName.toLowerCase())
